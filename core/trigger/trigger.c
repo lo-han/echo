@@ -1,17 +1,17 @@
-#include <trigger.h>
-#include <safe_memory.h>
+#include "trigger.h"
+#include "safe_memory.h"
 
 #include <stdlib.h>
 
-typedef struct _trigger
+struct _trigger
 {
-    Replier replier
+    Replier replier;
 };
 
 Trigger NewTrigger(Replier replier)
 {
     Trigger trigger = NULL;
-    Safe_mem_err err = safe_malloc(&trigger, sizeof(struct _trigger));
+    Safe_mem_err err = safe_malloc((void **)&trigger, sizeof(struct _trigger));
 
     if (err == _err_no_error)
     {
@@ -23,7 +23,7 @@ Trigger NewTrigger(Replier replier)
 
 void DestroyTrigger(Trigger trigger)
 {
-    safe_free_alloc(&trigger, sizeof(struct _trigger));
+    safe_free_alloc((void **)&trigger, sizeof(struct _trigger));
 }
 
 void Received(Trigger trigger, Message message)

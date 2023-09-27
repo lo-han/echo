@@ -1,5 +1,5 @@
-#include <protocol.h>
-#include <trigger.h>
+#include "protocol.h"
+#include "trigger.h"
 
 #include <stdio.h>
 

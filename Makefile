@@ -9,14 +9,10 @@ MEMORY_FOLDER=$(CORE_FOLDER)/memory
 REPLY_FOLDER=$(CORE_FOLDER)/reply
 TRIGGER_FOLDER=$(CORE_FOLDER)/trigger
 
-CFLAGS_MOCK= -I $(REPLY_FOLDER) -I $(TRIGGER_FOLDER) -I $(MEMORY_FOLDER) -I $(MOCK_FOLDER) -I $(PORT_FOLDER)
-DEPS_MOCK = $(REPLY_FOLDER)/reply.h  $(MEMORY_FOLDER)/safe_memory.h $(TRIGGER_FOLDER)/triger.h $(MOCK_FOLDER)/mock_protocol.h
+CFLAGS_MOCK=-I $(MEMORY_FOLDER) -I $(REPLY_FOLDER) -I $(TRIGGER_FOLDER) -I $(MOCK_FOLDER) -I $(PORT_FOLDER)
 
-%.o: %.c $(DEPS_MOCK)
-	@$(CC) -c -o $@ $< $(CFLAGS_MOCK)
-
-echo_test: $(MEMORY_FOLDER)/safe_memory.o $(TRIGGER_FOLDER)/trigger.o $(MOCK_FOLDER)/mock_protocol.o $(REPLY_FOLDER)/reply.o main.o
-	@$(CC) -o echo_lib $(MEMORY_FOLDER)/safe_memory.o $(TRIGGER_FOLDER)/trigger.o $(MOCK_FOLDER)/mock_protocol.o $(REPLY_FOLDER)/reply.o main.o
+echo_test: $(MEMORY_FOLDER)/safe_memory.c $(TRIGGER_FOLDER)/trigger.c $(MOCK_FOLDER)/mock_protocol.c $(REPLY_FOLDER)/reply.c main.c
+	@$(CC) -o echo_lib $(CFLAGS_MOCK) $(MEMORY_FOLDER)/safe_memory.c $(TRIGGER_FOLDER)/trigger.c $(MOCK_FOLDER)/mock_protocol.c $(REPLY_FOLDER)/reply.c main.c
 
 clean:
-	@rm *.o $(MEMORY_FOLDER)/*.o $(REPLY_FOLDER)/*.o $(TRIGGER_FOLDER)/*.o $(MOCK_FOLDER)/*.o main.o log
+	@rm echo_lib

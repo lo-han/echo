@@ -1,7 +1,7 @@
 #ifndef __TRIGGER_H__
 #define __TRIGGER_H__
 
-#include <reply.h>
+#include "reply.h"
 
 typedef struct _trigger *Trigger;
 

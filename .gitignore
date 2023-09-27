@@ -1,4 +1,5 @@
 .vscode
+echo_lib
 
 # Prerequisites
 *.d

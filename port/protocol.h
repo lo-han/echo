@@ -1,6 +1,9 @@
 #ifndef __PROTOCOL_H__
 #define __PROTOCOL_H__
 
+#include "trigger.h"
+#include "reply.h"
+
 typedef enum _b
 {
     _false = 0,

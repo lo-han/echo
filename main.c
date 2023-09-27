@@ -1,11 +1,11 @@
-#include <trigger.h>
-#include <reply.h>
-#include <protocol.h>
-#include <safe_memory.h>
+#include "trigger.h"
+#include "reply.h"
+#include "protocol.h"
+#include "safe_memory.h"
 
 #include <stdlib.h>
 
-int main(int argc, char **argv)
+int main()
 {
     Replier replier = NewReplier();
 
