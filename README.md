@@ -39,5 +39,5 @@ python3 run_tests.py
 ### Run static checks
 
 ``` bash
-python3 run_tests.py
+python3 run_static_check.py
 ```
