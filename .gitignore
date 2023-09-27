@@ -3,6 +3,8 @@ echo
 echo_mock
 echo_lib
 
+build
+
 # Prerequisites
 *.d
 

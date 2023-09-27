@@ -14,9 +14,9 @@ Replier NewReplier()
     return replier;
 }
 
-void DestroyReplier(Replier replier)
+void DestroyReplier(Replier *replier)
 {
-    safe_free_alloc((void **) &replier, sizeof(struct _replier));
+    safe_free_alloc((void **) replier, sizeof(struct _replier));
 }
 
 void Reply(Replier replier, Message message)

@@ -1,5 +1,6 @@
 #include "trigger.h"
 #include "reply.h"
+
 #include "protocol.h"
 #include "safe_memory.h"
 
@@ -23,6 +24,6 @@ int main()
 
     StartReceiving(trigger);
 
-    DestroyTrigger(trigger);
-    DestroyReplier(replier);
+    DestroyTrigger(&trigger);
+    DestroyReplier(&replier);
 }

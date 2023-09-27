@@ -21,9 +21,9 @@ Trigger NewTrigger(Replier replier)
     return trigger;
 }
 
-void DestroyTrigger(Trigger trigger)
+void DestroyTrigger(Trigger *trigger)
 {
-    safe_free_alloc((void **)&trigger, sizeof(struct _trigger));
+    safe_free_alloc((void **)trigger, sizeof(struct _trigger));
 }
 
 void Received(Trigger trigger, Message message)

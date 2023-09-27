@@ -19,7 +19,7 @@ Replier NewReplier();
  * Inputs:
  *  - Replier
  ********************************************************************/
-void DestroyReplier(Replier replier);
+void DestroyReplier(Replier *replier);
 
 /********************************************************************
  * This function replies a message

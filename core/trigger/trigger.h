@@ -21,7 +21,7 @@ Trigger NewTrigger(Replier replier);
  * Inputs:
  *  - Trigger
  ********************************************************************/
-void DestroyTrigger(Trigger trigger);
+void DestroyTrigger(Trigger *trigger);
 
 /********************************************************************
  * This function waits for a incoming message and triggers a reply
