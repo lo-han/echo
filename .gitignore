@@ -1,4 +1,6 @@
 .vscode
+echo
+echo_mock
 echo_lib
 
 # Prerequisites
