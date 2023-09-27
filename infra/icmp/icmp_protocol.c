@@ -5,8 +5,10 @@
 
 Bool StartReceiving(Trigger trigger)
 {
+    //
 }
 
 void Flush(Message message)
 {
+    //
 }
