@@ -18,30 +18,30 @@ enable_testing()
 add_executable(
   echo_tests
 
-  tests/core/safe_memory_test.cpp
-  tests/core/reply_to_trigger_test.cpp
+  core/safe_memory_test.cpp
+  core/reply_to_trigger_test.cpp
 
-  core/memory/safe_memory.h
-  core/memory/safe_memory.c
-  core/reply/reply.h
-  core/reply/reply.c
-  core/trigger/trigger.h
-  core/trigger/trigger.c
-  port/protocol.h
+  ../core/memory/safe_memory.h
+  ../core/memory/safe_memory.c
+  ../core/reply/reply.h
+  ../core/reply/reply.c
+  ../core/trigger/trigger.h
+  ../core/trigger/trigger.c
+  ../port/protocol.h
 
-  infra/mock/test_mock.c
-  infra/mock/test_mock.h
+  mock/test_mock.c
+  mock/test_mock.h
 )
 target_link_libraries(
   echo_tests
   GTest::gtest_main
 )
 
-target_include_directories(echo_tests PRIVATE core/memory)
-target_include_directories(echo_tests PRIVATE core/reply)
-target_include_directories(echo_tests PRIVATE core/trigger)
-target_include_directories(echo_tests PRIVATE infra/mock)
-target_include_directories(echo_tests PRIVATE port)
+target_include_directories(echo_tests PRIVATE ../core/memory)
+target_include_directories(echo_tests PRIVATE ../core/reply)
+target_include_directories(echo_tests PRIVATE ../core/trigger)
+target_include_directories(echo_tests PRIVATE ../port)
+target_include_directories(echo_tests PRIVATE mock)
 
 include(GoogleTest)
 gtest_discover_tests(echo_tests)
