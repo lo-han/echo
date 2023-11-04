@@ -6,7 +6,7 @@
 
 struct _replier{};
 
-Replier NewReplier()
+Replier _new_replier()
 {
     Replier replier = NULL;
     safe_malloc((void **) &replier, sizeof(struct _replier));
@@ -14,12 +14,12 @@ Replier NewReplier()
     return replier;
 }
 
-void DestroyReplier(Replier *replier)
+void _destroy_replier(Replier *replier)
 {
     safe_free_alloc((void **) replier, sizeof(struct _replier));
 }
 
-void Reply(Replier replier, Message message)
+void _reply(Replier replier, Message message)
 {
     Flush(message);
 }

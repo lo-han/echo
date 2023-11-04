@@ -8,12 +8,10 @@ typedef struct _trigger *Trigger;
 /********************************************************************
  * This function creates a new Trigger type
  *
- * Inputs:
- *  - Replier
  * Outputs:
  *  - Trigger
  ********************************************************************/
-Trigger NewTrigger(Replier replier);
+Trigger NewTrigger();
 
 /********************************************************************
  * This function destroys a Trigger type
