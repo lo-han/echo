@@ -8,14 +8,7 @@ _Coming soon (ICMP)_
 ## Usage example
 
 ```c
-Replier replier = NewReplier();
-
-if (replier == NULL)
-{
-    return -1;
-}
-
-Trigger trigger = NewTrigger(replier);
+Trigger trigger = NewTrigger();
 
 if (trigger == NULL)
 {
@@ -25,7 +18,6 @@ if (trigger == NULL)
 StartReceiving(trigger); // Loop
 
 DestroyTrigger(&trigger);
-DestroyReplier(&replier);
 ```
 
 ## Tests

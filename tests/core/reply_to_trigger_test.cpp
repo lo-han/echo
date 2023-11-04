@@ -12,11 +12,7 @@ extern "C"
 
 TEST(Received, successful_reply_chain)
 {
-    Replier replier = NewReplier();
-
-    ASSERT_EQ((replier != NULL), true);
-
-    Trigger trigger = NewTrigger(replier);
+    Trigger trigger = NewTrigger();
 
     ASSERT_EQ((trigger != NULL), true);
 
@@ -28,7 +24,4 @@ TEST(Received, successful_reply_chain)
 
     DestroyTrigger(&trigger);
     ASSERT_EQ((trigger == NULL), true);
-
-    DestroyReplier(&replier);
-    ASSERT_EQ((replier == NULL), true);
 }

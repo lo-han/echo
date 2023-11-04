@@ -8,14 +8,7 @@
 
 int main()
 {
-    Replier replier = NewReplier();
-
-    if (replier == NULL)
-    {
-        return _err_error;
-    }
-
-    Trigger trigger = NewTrigger(replier);
+    Trigger trigger = NewTrigger();
 
     if (trigger == NULL)
     {
@@ -25,5 +18,4 @@ int main()
     StartReceiving(trigger);
 
     DestroyTrigger(&trigger);
-    DestroyReplier(&replier);
 }

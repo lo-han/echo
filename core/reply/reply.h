@@ -11,7 +11,7 @@ typedef struct _reply *Replier;
  * Outputs:
  *  - Replier
  ********************************************************************/
-Replier NewReplier();
+Replier _new_replier();
 
 /********************************************************************
  * This function destroys a Replier type
@@ -19,7 +19,7 @@ Replier NewReplier();
  * Inputs:
  *  - Replier
  ********************************************************************/
-void DestroyReplier(Replier *replier);
+void _destroy_replier(Replier *replier);
 
 /********************************************************************
  * This function replies a message
@@ -28,6 +28,6 @@ void DestroyReplier(Replier *replier);
  *  - Replier
  *  - Message
  ********************************************************************/
-void Reply(Replier replier, Message message);
+void _reply(Replier replier, Message message);
 
 #endif
