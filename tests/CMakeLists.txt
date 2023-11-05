@@ -19,14 +19,14 @@ add_executable(
   echo_tests
 
   core/safe_memory_test.cpp
-  core/reply_to_trigger_test.cpp
+  core/reply_to_listener_test.cpp
 
   ../core/memory/safe_memory.h
   ../core/memory/safe_memory.c
   ../core/reply/reply.h
   ../core/reply/reply.c
-  ../core/trigger/trigger.h
-  ../core/trigger/trigger.c
+  ../core/listener/listener.h
+  ../core/listener/listener.c
   ../port/protocol.h
 
   mock/test_mock.c
@@ -39,7 +39,7 @@ target_link_libraries(
 
 target_include_directories(echo_tests PRIVATE ../core/memory)
 target_include_directories(echo_tests PRIVATE ../core/reply)
-target_include_directories(echo_tests PRIVATE ../core/trigger)
+target_include_directories(echo_tests PRIVATE ../core/listener)
 target_include_directories(echo_tests PRIVATE ../port)
 target_include_directories(echo_tests PRIVATE mock)
 

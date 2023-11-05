@@ -1,12 +1,12 @@
-#include "protocol.h"
-#include "trigger.h"
+#include "icmp_protocol.h"
+#include "listener.h"
 
 #include <stdio.h>
 
-Bool StartReceiving(Trigger trigger)
+Bool ICMPStartReceiving(Listener listener)
 {
 }
 
-void Flush(Message message)
+void ICMPFlush(Message message)
 {
 }
