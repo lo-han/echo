@@ -27,19 +27,15 @@ void DestroyListener(Listener *listener)
 {
     if (listener != NULL)
     {
-        Listener ctn_listener = *listener;
-
         safe_free_alloc((void **)listener, sizeof(struct _listener));
     }
 }
 
-void StartListening(Listener listener, Message replyMessage)
+void StartListening(Listener listener)
 {
     if (listener != NULL)
     {
-        if (listener->receiver(listener) == _true)
-        {
-            listener->callback(replyMessage);
-        }
+        Message incomingMessage = listener->receiver();
+        listener->callback(incomingMessage);
     }
 }

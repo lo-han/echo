@@ -7,16 +7,10 @@ typedef struct _listener *Listener;
 
 typedef void (*FlushCallback)(Message message);
 
-typedef enum _b
-{
-    _false = 0,
-    _true
-} Bool;
-
-typedef Bool (*StartReceiving)(Listener listener);
+typedef Message (*StartReceiving)();
 
 /********************************************************************
- * This function creates a new Listener type
+ * Listener type constructor
  *
  * Outputs:
  *  - Listener
@@ -24,15 +18,14 @@ typedef Bool (*StartReceiving)(Listener listener);
 Listener NewListener(StartReceiving receiver, FlushCallback callback);
 
 /********************************************************************
- * This function waits for a incoming message and reply a message
- *
+ * This function waits (sync) for a incoming signal and reply
  * Inputs:
  *  - Listener
  ********************************************************************/
-void StartListening(Listener listener, Message replyMessage);
+void StartListening(Listener listener);
 
 /********************************************************************
- * This function destroys a Listener type
+ * Listener type destructor
  *
  * Inputs:
  *  - Listener

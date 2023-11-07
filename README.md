@@ -10,7 +10,7 @@ _Coming soon (ICMP)_
 ```c
     Listener listener = NewMockListener();
 
-    StartMockListening(listener); // Sync
+    StartListening(listener); // Sync
 
     DestroyListener(&listener);
 ```
@@ -37,30 +37,29 @@ _Any idea or improvement is welcome. Feel free to branch and Pull Request for co
 
 The following must be implemented to add `echo` a new protocol type
 
-- `<PROTOCOL>Flush` (function)
-- `<PROTOCOL>StartReceiving` (function)
 - `New<PROTOCOL>Listener` (macro)
-- `Start<PROTOCOL>Listening` (macro)
+- `<PROTOCOL>StartReceiving` (function)
+- `<PROTOCOL>Flush` (function)
 
-Example:
+[Implementation example](tests/mock/static/mock_protocol.c).
 
+[Header](tests/mock/static/mock_protocol.h):
 ``` c
 #define NewMockListener() NewListener(&MockStartReceiving, &MockFlush)
-#define StartMockListening(listener) StartListening(listener, "HELLO WORLD\0")
+
+/********************************************************************
+ * This function receives a message and forwards to Listener
+ *
+ * Outputs:
+ *  - Message
+ ********************************************************************/
+Message MockStartReceiving();
 
 /********************************************************************
  * This function flushes a message to an output
- * 
+ *
  * Inputs:
  *  - Message
  ********************************************************************/
 void MockFlush(Message message);
-
-/********************************************************************
- * This function receives a message and forwards to Listener
- * 
- * Inputs:
- *  - Listener
- ********************************************************************/
-Bool MockStartReceiving(Listener listener);
 ```
