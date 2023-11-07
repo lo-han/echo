@@ -1,19 +1,16 @@
 CC=gcc
 
 CORE_FOLDER=../core
+LISTENER_FOLDER=$(CORE_FOLDER)/listener
 INFRA_FOLDER=../infra
-PORT_FOLDER=../port
+MOCK_FOLDER=./mock/static
+LIB_FOLDER=../lib
+INCLUDE_FOLDER=../include
 
-MOCK_FOLDER=./mock
+CFLAGS=-I $(INCLUDE_FOLDER) -I $(LISTENER_FOLDER)
 
-MEMORY_FOLDER=$(CORE_FOLDER)/memory
-REPLY_FOLDER=$(CORE_FOLDER)/reply
-TRIGGER_FOLDER=$(CORE_FOLDER)/trigger
-
-CFLAGS=-I $(MEMORY_FOLDER) -I $(REPLY_FOLDER) -I $(TRIGGER_FOLDER) -I $(PORT_FOLDER)
-
-echo_mock: $(MEMORY_FOLDER)/safe_memory.c $(TRIGGER_FOLDER)/trigger.c $(MOCK_FOLDER)/mock_protocol.c $(REPLY_FOLDER)/reply.c $(MOCK_FOLDER)/main.c
-	@$(CC) -o echo_mock $(CFLAGS) -I $(MOCK_FOLDER) $(MEMORY_FOLDER)/safe_memory.c $(TRIGGER_FOLDER)/trigger.c $(MOCK_FOLDER)/mock_protocol.c $(REPLY_FOLDER)/reply.c $(MOCK_FOLDER)/main.c
+echo_mock: $(LISTENER_FOLDER)/listener.c $(MOCK_FOLDER)/mock_protocol.c $(MOCK_FOLDER)/main.c
+	@$(CC) -o echo_mock $(CFLAGS) -I $(MOCK_FOLDER) $(LIB_FOLDER)/safe_memory.o $(LISTENER_FOLDER)/listener.c $(MOCK_FOLDER)/mock_protocol.c $(MOCK_FOLDER)/main.c
 
 clean:
 	@rm echo_mock
