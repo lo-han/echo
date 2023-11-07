@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-Bool ICMPStartReceiving(Listener listener)
+Message ICMPStartReceiving()
 {
 }
 

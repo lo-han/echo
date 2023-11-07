@@ -2,14 +2,17 @@
 #include "listener.h"
 
 #include <stdio.h>
+#include <string.h>
 
-Bool MockStartReceiving(Listener listener)
+Message MockStartReceiving()
 {
-    // Message receivedMessage = "HELLO WORLD\0";
-    return _true;
+    return "HELLO WORLD\0";
 }
 
 void MockFlush(Message message)
 {
-    printf("%s\n", message);
+    if (strcmp(message, "HELLO WORLD\0") == 0)
+    {
+        printf("%s\n", "HELLO!\0");
+    }
 }

@@ -14,7 +14,7 @@ int main()
         return -1;
     }
 
-    StartMockListening(listener);
+    StartListening(listener);
 
     DestroyListener(&listener);
 }
