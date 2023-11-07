@@ -2,7 +2,6 @@
 echo
 echo_mock
 echo_lib
-
 build
 
 # Prerequisites
@@ -10,6 +9,7 @@ build
 
 # Object files
 *.o
+!lib/*o
 *.ko
 *.obj
 *.elf

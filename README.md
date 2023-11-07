@@ -10,9 +10,9 @@ _Coming soon (ICMP)_
 ```c
     Listener listener = NewMockListener();
 
-    StartMockListening(listener); // Async
+    StartMockListening(listener); // Sync
 
-    // DestroyListener(&listener);
+    DestroyListener(&listener);
 ```
 
 ## Tests
