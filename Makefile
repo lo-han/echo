@@ -17,11 +17,12 @@ OBJS = $(patsubst %.c,%.o,$(SRCS))
 
 # Default rule
 all: $(OBJS)
-	ld -r $< ./lib/safe_memory.o -o $(OBJ_DIR)/echo.o
+	ld -r $(OBJS) -o $(OBJ_DIR)/echo.o
 
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ_DIR)/*.o
 	@rm $(SRC_DIR)/*/*/*.o
+	@rm tests/mock/static/*.o
