@@ -23,8 +23,8 @@ add_executable(
   ../include/safe_memory.h
   ../lib/safe_memory.o
 
-  ../core/listener/listener.h
-  ../core/listener/listener.c
+  ../src/core/listener/listener.h
+  ../src/core/listener/listener.c
 
   mock/unit/test_mock.c
   mock/unit/test_mock.h
@@ -35,7 +35,7 @@ target_link_libraries(
 )
 
 target_include_directories(echo_tests PRIVATE ../include)
-target_include_directories(echo_tests PRIVATE ../core/listener)
+target_include_directories(echo_tests PRIVATE ../src/core/listener)
 target_include_directories(echo_tests PRIVATE mock/unit)
 
 include(GoogleTest)

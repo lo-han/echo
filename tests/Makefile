@@ -1,6 +1,6 @@
 CC=gcc
 
-CORE_FOLDER=../core
+CORE_FOLDER=../src/core
 LISTENER_FOLDER=$(CORE_FOLDER)/listener
 INFRA_FOLDER=../infra
 MOCK_FOLDER=./mock/static

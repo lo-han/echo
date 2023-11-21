@@ -15,17 +15,28 @@ _Coming soon (ICMP)_
     DestroyListener(&listener);
 ```
 
+## Build
+
+> Currently echo doesn't implement any communication protocol, and for that reason a mock is being used
+
+``` bash
+mkdir obj
+make
+```
+
 ## Tests
 
 ### Run unit tests
 
 ``` bash
+cd tests
 python3 run_tests.py
 ```
 
 ### Run static checks
 
 ``` bash
+cd tests
 python3 run_static_check.py
 ```
 
